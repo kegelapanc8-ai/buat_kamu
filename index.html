@@ -38,13 +38,15 @@
     <div id="scare"></div>
 
     <script>
-        document.body.addEventListener('click', function() {
-            document.getElementById('message').style.display = 'none';
-            document.getElementById('scare').style.display = 'block';
-            // Mainkan suara jumpscare jika mau (opsional, ganti URL suara)
-            var audio = new Audio('https://www.myinstants.com/en/instant/fnaf-ennard-jumpscare-60959/?utm_source=copy&utm_medium=share'.wav); // Ganti dengan URL suara menakutkan
-            audio.play();
+    document.body.addEventListener('click', function() {
+        document.getElementById('message').style.display = 'none';
+        document.getElementById('scare').style.display = 'block';
+        // Coba mainkan suara
+        var audio = new Audio('https://www.myinstants.com/en/instant/fnaf-ennard-jumpscare-60959/?utm_source=copy&utm_medium=share'); // Ganti dengan URL suara baru
+        audio.play().catch(function(error) {
+            console.log('Suara gagal dimainkan:', error); // Untuk debug di console
         });
+    });
     </script>
 </body>
 </html>
