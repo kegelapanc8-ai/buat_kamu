@@ -41,10 +41,10 @@
     document.body.addEventListener('click', function() {
         document.getElementById('message').style.display = 'none';
         document.getElementById('scare').style.display = 'block';
-        // Coba mainkan suara
-        var audio = new Audio('content://media/external/downloads/1000715960'.mp3); // Ganti dengan URL suara baru
+        // Mainkan suara dari file yang diupload
+        var audio = new Audio('sounds/Scream_op5-6.mp3'); // Ganti dengan nama file kamu
         audio.play().catch(function(error) {
-            console.log('Suara gagal dimainkan:', error); // Untuk debug di console
+            console.log('Suara gagal dimainkan:', error); // Debug di console
         });
     });
     </script>
