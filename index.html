@@ -24,9 +24,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: src('scary_ennard.jpg') no-repeat center center;
-            background-size: cover;
+            background: black; /* Fallback kalau gambar gagal load */
             z-index: 9999;
+        }
+        #scare img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Biar gambar pas fullscreen tanpa distorsi */
         }
         #message {
             font-size: 2em;
@@ -35,18 +39,20 @@
 </head>
 <body>
     <div id="message">Klik di sini untuk melihat sesuatu yang menarik...</div>
-    <div id="scare"></div>
+    <div id="scare">
+        <img src="scary_ennard.jpg" alt="Jumpscare!" /> <!-- Pakai tag img, path relatif ke file di repo -->
+    </div>
 
     <script>
-    document.body.addEventListener('click', function() {
-        document.getElementById('message').style.display = 'none';
-        document.getElementById('scare').style.display = 'block';
-        // Mainkan suara dari file yang diupload
-        var audio = new Audio('sounds/Scream_op5-6.mp3'); // Ganti dengan nama file kamu
-        audio.play().catch(function(error) {
-            console.log('Suara gagal dimainkan:', error); // Debug di console
+        document.body.addEventListener('click', function() {
+            document.getElementById('message').style.display = 'none';
+            document.getElementById('scare').style.display = 'block';
+            // Mainkan suara dari file yang diupload
+            var audio = new Audio('sounds/Scream_op5-6.mp3'); // Pastikan path bener
+            audio.play().catch(function(error) {
+                console.log('Suara gagal dimainkan:', error); // Debug di console
+            });
         });
-    });
     </script>
 </body>
 </html>
